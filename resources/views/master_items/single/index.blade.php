@@ -42,7 +42,22 @@
                             <td>:</td>
                             <td>{{$data->jenis}}</td>
                         </tr>
+                        <tr>
+                            <th>Kategori</th>
+                            <td>:</td>
+                            <td>{{ $data->kategoriItems->nama ?? '-' }}</td>
+                        </tr>
+
                     </table>
+
+                    <!-- Menampilkan foto produk jika ada -->
+                    <div class="form-group">
+                        <label>Foto Produk</label>
+                        <div>
+                            <img src="{{ asset('storage/' . $data->foto) }}" alt="Foto Produk" class="img-fluid mb-2" width="100">
+                        </div>
+                    </div>
+
                     <a class="btn btn-info" href="{{url('master-items/form/edit')}}/{{$data->id}}">Edit</a>
                     <a class="btn btn-danger" href="{{url('master-items/delete')}}/{{$data->id}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                 </div>
